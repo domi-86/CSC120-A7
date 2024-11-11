@@ -4,6 +4,7 @@ public class Building {
     protected String address;
     protected int nFloors;
     protected int activeFloor = -1; // Default value indicating we are not inside this building
+    protected boolean hasElevator = true;
 
     /* Default constructor */
     public Building() {
@@ -67,22 +68,34 @@ public class Building {
     }
 
     public void goToFloor(int floorNum) {
+        //System.out.println(this.activeFloor+1 +" " + floorNum);
+
+        if (this.activeFloor+1 == floorNum || this.activeFloor-1 == floorNum) {
+        
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
         }
         if (floorNum < 1 || floorNum > this.nFloors) {
             throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
         }
+
         System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+        //System.out.println(this.activeFloor + " " + floorNum);
         this.activeFloor = floorNum;
+    }
+    else {
+        throw new RuntimeException("This building doesn't have elevators.");
+    }
+
     }
 
     public void goUp() {
         this.goToFloor(this.activeFloor + 1);
-    }
+        }
+
 
     public void goDown() {
-        this.goToFloor(this.activeFloor - 1);
+            this.goToFloor(this.activeFloor - 1);
     }
 
     public void showOptions() {
@@ -107,7 +120,10 @@ public class Building {
         System.out.println("-----------------------------------");
         fordHall.enter();
         fordHall.goUp();
+        //fordHall.goToFloor(4);
         fordHall.goDown();
+        //fordHall.goDown();
+        //fordHall.goDown();
         fordHall.exit();
     }
 
