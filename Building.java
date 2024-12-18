@@ -33,19 +33,32 @@ public class Building {
     }
 
     /* Accessors */
+    /** getter for name of Building
+     * @return
+     */
     public String getName() {
         return this.name;
     }
 
+    /** getter for name of building
+     * @return
+     */
     public String getAddress() {
         return this.address;
     }
 
+    /** getter for floor numbers
+    @return 
+    */
     public int getFloors() {
         return this.nFloors;
     }
 
     /* Navigation methods */
+    /**
+     * enter building
+     * @return
+     */
     public Building enter() {
         if (activeFloor != -1) {
             throw new RuntimeException("You are already inside this Building.");
@@ -55,6 +68,10 @@ public class Building {
         return this; // Return a pointer to the current building
     }
 
+    /**
+     * exit building
+     * @return
+     */
     public Building exit() {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before exit().");
@@ -67,6 +84,10 @@ public class Building {
         return null; // We're outside now, so the building is null
     }
 
+    /**
+     * go to floor floorNum
+     * @param floorNum
+     */
     public void goToFloor(int floorNum) {
         //System.out.println(this.activeFloor+1 +" " + floorNum);
 
@@ -89,19 +110,26 @@ public class Building {
 
     }
 
+    /** increases activeFloor by 1 */
     public void goUp() {
         this.goToFloor(this.activeFloor + 1);
         }
 
 
+    /** decreases activeFloor by 1 */
     public void goDown() {
             this.goToFloor(this.activeFloor - 1);
     }
 
+    /** prints all available commands */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
 
+    /**
+     * returns a summary of the Building
+     * @return
+     */
     public String toString() {
         return this.name + " is a " + this.nFloors + "-story building located at " + this.address + ".";
     }

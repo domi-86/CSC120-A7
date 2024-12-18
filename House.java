@@ -27,6 +27,7 @@ public class House extends Building {
     }
 
     @Override
+    /** Go to floor floorNum */
     public void goToFloor(int floorNum) {
         
         if (this.activeFloor == -1) {
@@ -89,12 +90,18 @@ public class House extends Building {
     }
 
     @Override
+    /** prints available commands */
     public void showOptions() {
-        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n) \n + moveIn(name) \n + moveOut(name) \n + hasDiningRoom() \n + nResidents() \n + isResident(name)");
+        super.showOptions();
+        System.out.println("+ moveIn(name) \n + moveOut(name) \n + hasDiningRoom() \n + nResidents() \n + isResident(name)");
     }
 
     public static void main(String[] args) {
-        //new House();
+        ArrayList<String> example = new ArrayList<>();
+        example.add("student1");
+        example.add("student2");
+        House cutter = new House("Cutter"," 10 Prospect St, Northampton, MA 01060",2,example,true);
+        cutter.showOptions();
     }
 
 }

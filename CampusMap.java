@@ -31,6 +31,7 @@ public class CampusMap {
         return b;
     }
 
+    /** prints all of the buildings */
     public String toString() {
         String mapString = "DIRECTORY of BUILDINGS";
 
@@ -54,7 +55,8 @@ public class CampusMap {
         myMap.addBuilding(new Building("Hillyer Hall", "20 Elm St, Northampton, MA 01063"));
         myMap.addBuilding(new Building("Hatfield Hall", "3 Neilson Drive, Northampton, MA 01063"));
         myMap.addBuilding(new Building("60 Elm St, Northampton, MA 01060"));
-        myMap.addBuilding(new Building("Office of Admission", "7 College Ln, Northampton, MA 01060"));
+        myMap.addBuilding(new Library("7 Neilson Drive, Northampton, MA 01063"));
+        myMap.addBuilding(new Cafe("Compass Cafe","address", 2));
         System.out.println(myMap);
     }
     

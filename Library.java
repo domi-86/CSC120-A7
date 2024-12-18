@@ -1,11 +1,27 @@
 /* This is a stub for the Library class */
 
-import java.util.Hashtable;
 import java.util.Enumeration;
+import java.util.Hashtable;
 
 public class Library extends Building {
 
     private Hashtable <String, Boolean> collection;
+
+    /** Defaul constructor */
+    public Library() {
+        super("<Name Unknown>", "<Address Unknown>", 1);
+        this.collection = new Hashtable <> ();
+        this.hasElevator = true;
+        System.out.println("You have built a library: 📖");
+    }
+
+    /* Overloaded constructor with address only */
+    public Library(String address) {
+        super(address);
+        this.collection = new Hashtable <> ();
+        this.hasElevator = true;
+        System.out.println("You have built a library: 📖");
+    }
 
     /**
      * Constructor
@@ -15,6 +31,13 @@ public class Library extends Building {
      */
     public Library(String name, String address, int nFloors) {
         super(name, address, nFloors);
+        this.collection = new Hashtable <> ();
+        this.hasElevator = true;
+        System.out.println("You have built a library: 📖");
+    }
+
+    public Library(String name, String address) {
+        super(name, address);
         this.collection = new Hashtable <> ();
         this.hasElevator = true;
         System.out.println("You have built a library: 📖");
